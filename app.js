@@ -39,7 +39,9 @@ app.get("/posts/:postTitle",function(req,res)
     for(let i=0;i<posts.length;i++)
     {
         if(_.lowerCase(posts[i].postTitle) === tempTitle)
-            console.log("Match found");
+        {
+            res.render("post",{postTitle : posts[i].postTitle, postContent : posts[i].postContent});
+        }
     }
 });
 app.post("/compose",function(req,res)
